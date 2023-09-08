@@ -14,3 +14,27 @@ function getPlayerChoice() {
     return -1;
   }
 }
+
+function playRound(playerSelection, computerSelection) {
+  const playerWin = "Player win";
+  const computerWin = "Computer win";
+
+  if (playerSelection === 0 && computerSelection === 2) {
+    console.log(playerWin);
+    return playerWin;
+  } else if (playerSelection === 2 && computerSelection === 0) {
+    console.log(computerWin);
+    return computerWin;
+  } else if (playerSelection > computerSelection) {
+    console.log(playerWin);
+    return playerWin;
+  } else if (computerSelection > playerSelection) {
+    console.log(computerWin);
+    return computerWin;
+  } else if (playerSelection === -1) {
+    console.log("Game canceled");
+  } else {
+    console.log("Tie");
+    return "Tie";
+  }
+}
