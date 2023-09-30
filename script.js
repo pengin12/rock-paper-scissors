@@ -43,38 +43,4 @@ function playRound(playerSelection, computerSelection) {
       console.log("Tie");
       return "Tie";
   }
-}
-
-function game() {
-  let playerScores = 0;
-  let computerScores = 0;
-
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
-
-    const result = playRound(playerSelection, computerSelection);
-  
-    if (result === "Game canceled") {
-      console.log("Game canceled");
-      i = 5;
-    } else if (result === "Player win") {
-      ++playerScores;
-    } else if (result === "Computer win") {
-      ++computerScores;
-    }
-	}
-    
-  console.log(`Player ${playerScores} - ${computerScores} Computer`);
-  if (playerScores > computerScores) {
-    console.log("You win");
-  }
-  else if (computerScores > playerScores) {
-    console.log("Computer win");
-  }
-  else {
-    console.log("Tie");
-  }
-}
-
-game();
+};
