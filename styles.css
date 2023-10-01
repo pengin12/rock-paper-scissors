@@ -1,9 +1,11 @@
 body {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: black;
   color: white;
+  justify-content: space-between;
 }
 
 .scoreDisplay{
@@ -11,14 +13,23 @@ body {
   font-weight: bold;
 }
 
-.players {
+.gameDisplay {
   font-size: 40px;
   display: flex;
+  flex-direction: column;
   width: 100%;
+  justify-content: flex-start;
+  height: 250px;
+}
+
+.players {
+  display: flex;
   justify-content: space-around;
 }
 
-.playerEmoji, .computerEmoji {
+.emoji {
+  display: flex;
+  justify-content: space-around;
   font-size: 200px;
 }
 
