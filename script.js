@@ -3,10 +3,9 @@ function getComputerChoice() {
   return Math.round(Math.random() * 3);
 }
 
-function playRound(playerSelection) {
+function playRound(playerSelection, computerSelection) {
   const playerWin = "Player win";
   const computerWin = "Computer win";
-  const computerSelection = getComputerChoice();
 
   // paper = 0; scissors = 1; rock = 2
   if (playerSelection === 0 && computerSelection === 2) {
@@ -34,18 +33,40 @@ const scoreDisplay = document.querySelector(".scoreDisplay");
 scoreDisplay.textContent = `0 vs 0`;
 
 const winnerDisplay = document.querySelector(".winnerDisplay");
+const playerEmoji = document.querySelector(".playerEmoji");
+const computerEmoji = document.querySelector(".computerEmoji");
 
 const buttons = document.querySelectorAll(".buttons button");
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const playerSelection = button.id;
-    const winner = playRound(playerSelection);
+    const computerSelection = getComputerChoice();
+
+    if (playerSelection === 2) {
+      playerEmoji.textContent = "✊";
+    } else if (playerSelection === 1) {
+      playerEmoji.textContent = "✌️";
+    } else {
+      playerEmoji.textContent = "✋";
+    }
+
+    if (computerSelection === 2) {
+      computerEmoji.textContent = "✊";
+    } else if (computerSelection === 1) {
+      computerEmoji.textContent = "✌️";
+    } else {
+      computerEmoji.textContent = "✋";
+    }
+
+    const winner = playRound(playerSelection, computerSelection);
     if (winner === "Player win") {
       ++playerScore;
     } else if (winner === "Computer win") {
       ++computerScore;
     }
+
     scoreDisplay.textContent = `${playerScore} vs ${computerScore}`;
+
     if (playerScore === 5) {
       winnerDisplay.textContent = "Player win";
       playerScore = 0;
