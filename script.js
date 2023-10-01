@@ -1,5 +1,4 @@
 function getComputerChoice() {
-  console.log(Math.round(Math.random() * 3))
   return Math.round(Math.random() * 3);
 }
 
@@ -8,20 +7,15 @@ function playRound(playerSelection, computerSelection) {
   const computerWin = "Computer win";
 
   // paper = 0; scissors = 1; rock = 2
-  if (playerSelection === 0 && computerSelection === 2) {
-      console.log(playerWin);
+  if (playerSelection === "0" && computerSelection === 2) {
       return playerWin;
-  } else if (playerSelection === 2 && computerSelection === 0) {
-      console.log(computerWin);
+  } else if (playerSelection === "2" && computerSelection === 0) {
       return computerWin;
   } else if (playerSelection > computerSelection) {
-      console.log(playerWin);
       return playerWin;
   } else if (computerSelection > playerSelection) {
-      console.log(computerWin);
       return computerWin;
   } else {
-      console.log("Tie");
       return "Tie";
   }
 };
@@ -41,12 +35,13 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const playerSelection = button.id;
     const computerSelection = getComputerChoice();
+    console.log(playerSelection);
 
-    if (playerSelection === 2) {
+    if (playerSelection === "2") {
       playerEmoji.textContent = "✊";
-    } else if (playerSelection === 1) {
+    } else if (playerSelection === "1") {
       playerEmoji.textContent = "✌️";
-    } else {
+    } else if (playerSelection === "0") {
       playerEmoji.textContent = "✋";
     }
 

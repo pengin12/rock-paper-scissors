@@ -18,6 +18,10 @@ body {
   justify-content: space-around;
 }
 
+.playerEmoji, .computerEmoji {
+  font-size: 200px;
+}
+
 .buttons button{
   height: 150px;
   width: 200px;
