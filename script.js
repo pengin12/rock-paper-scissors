@@ -1,33 +1,15 @@
 function getComputerChoice() {
-  return Math.floor(Math.random() * 3);
+  console.log(Math.round(Math.random() * 3))
+  return Math.round(Math.random() * 3);
 }
 
-function getPlayerChoice() {
-  let answer = prompt("Rock, Paper or Scissors", )
-  if (answer === null) {
-    return -1;
-  } else {
-    answer.toLowerCase();
-
-    if (answer === "paper") {
-      return 0;
-    } else if (answer === "scissors") {
-      return 1;
-    } else if (answer === "rock") {
-      return 2;
-    } else {
-      return -1;
-    }
-  }
-}
-
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
   const playerWin = "Player win";
   const computerWin = "Computer win";
-  
-    if (playerSelection === -1) {
-      return "Game canceled";
-  } else if (playerSelection === 0 && computerSelection === 2) {
+  const computerSelection = getComputerChoice();
+
+  // paper = 0; scissors = 1; rock = 2
+  if (playerSelection === 0 && computerSelection === 2) {
       console.log(playerWin);
       return playerWin;
   } else if (playerSelection === 2 && computerSelection === 0) {
@@ -44,3 +26,37 @@ function playRound(playerSelection, computerSelection) {
       return "Tie";
   }
 };
+
+let playerScore = 0;
+let computerScore = 0;
+
+const scoreDisplay = document.querySelector(".scoreDisplay");
+scoreDisplay.textContent = `Player 0 vs 0 Computer`;
+
+const winnerDisplay = document.querySelector(".winnerDisplay");
+
+const buttons = document.querySelectorAll(".buttons button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerSelection = button.id;
+    const winner = playRound(playerSelection);
+    if (winner === "Player win") {
+      ++playerScore;
+    } else if (winner === "Computer win") {
+      ++computerScore;
+    }
+    scoreDisplay.textContent = `Player ${playerScore} vs ${computerScore} Computer`;
+    if (playerScore === 5) {
+      winnerDisplay.textContent = "Player win";
+      playerScore = 0;
+      computerScore = 0;
+    } else if (computerScore === 5) {
+      winnerDisplay.textContent = "Computer win";
+      playerScore = 0;
+      computerScore = 0;
+    } else {
+      winnerDisplay.textContent = "";
+    }
+  });
+});
+
