@@ -31,7 +31,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const scoreDisplay = document.querySelector(".scoreDisplay");
-scoreDisplay.textContent = `Player 0 vs 0 Computer`;
+scoreDisplay.textContent = `0 vs 0`;
 
 const winnerDisplay = document.querySelector(".winnerDisplay");
 
@@ -45,7 +45,7 @@ buttons.forEach((button) => {
     } else if (winner === "Computer win") {
       ++computerScore;
     }
-    scoreDisplay.textContent = `Player ${playerScore} vs ${computerScore} Computer`;
+    scoreDisplay.textContent = `${playerScore} vs ${computerScore}`;
     if (playerScore === 5) {
       winnerDisplay.textContent = "Player win";
       playerScore = 0;
