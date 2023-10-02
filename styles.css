@@ -1,11 +1,12 @@
 body {
   height: 100vh;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: black;
   color: white;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .scoreDisplay{
@@ -15,21 +16,27 @@ body {
 
 .gameDisplay {
   font-size: 40px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player, .computer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  justify-content: flex-start;
-  height: 250px;
 }
 
-.players {
-  display: flex;
-  justify-content: space-around;
+.player {
+  margin-left: 30vh;
 }
 
-.emoji {
-  display: flex;
-  justify-content: space-around;
+.computer {
+  margin-right: 30vh;
+}
+
+.playerEmoji, .computerEmoji {
   font-size: 200px;
 }
 
